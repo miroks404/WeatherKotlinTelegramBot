@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
 
         if (messageText?.lowercase() == "/start") telegramService.sendMessage(
             chatId,
-            "Привет! Я бот по получению погоды по точке. \nОтправляй мне геопозицию, а я тебе отправлю погоду в течении дня."
+            "Привет! Я бот по получению температуры по точке. \nОтправляй мне геопозицию, а я тебе отправлю температуру в течении дня."
         )
 
         val latitude = latitudeRegex.find(updates)?.groups?.get(1)?.value   ?: continue
