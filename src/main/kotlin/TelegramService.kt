@@ -11,7 +11,7 @@ class TelegramService(private val botToken: String) {
 
     private val client = HttpClient.newBuilder().build()
 
-    fun getUpdates(updateId: Int): String {
+    fun getUpdates(updateId: Long): String {
         val urlGetUpdates = "${Constants.URL_API_TELEGRAM}$botToken/getUpdates?offset=$updateId"
 
         val requestGetUpdates: HttpRequest = HttpRequest.newBuilder().uri(URI.create(urlGetUpdates)).build()
@@ -21,7 +21,7 @@ class TelegramService(private val botToken: String) {
         return responseGetUpdates.body()
     }
 
-    fun sendMessage(chatId: String, text: String) {
+    fun sendMessage(chatId: Long, text: String) {
 
         val encoded = URLEncoder.encode(
             text,
